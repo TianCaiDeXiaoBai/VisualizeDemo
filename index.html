@@ -1,0 +1,48 @@
+<!--
+ * @Author: wujian
+ * @Date: 2022-08-15 09:16:44
+ * @LastEditors: wujian
+ * @LastEditTime: 2022-09-21 09:42:05
+ * @FilePath: \case\index.html
+ * @Description: 
+ * @email: 281919544@qq.com
+ * Copyright (c) 2022 by wujian 281919544@qq.com, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <link rel="icon" href="/favicon.ico" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3d案例展示</title>
+</head>
+<body>
+  <div id="app"> </div>
+  <script id="vs1" type="x-shader/x-vertex">
+    varying vec3 vNormal;
+    varying vec3 vPositionNormal;
+    void main() 
+    {
+      vNormal = normalize( normalMatrix * normal ); // 转换到视图空间
+      vPositionNormal = normalize(( modelViewMatrix * vec4(position, 1.0) ).xyz);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+    }
+
+  </script>
+  <script id="fs1" type="x-shader/x-fragment">
+    uniform vec3 glowColor;
+    uniform float b;
+    uniform float p;
+    uniform float s;
+    varying vec3 vNormal;
+    varying vec3 vPositionNormal;
+    void main() 
+    {
+      float a = pow( b + s * abs(dot(vNormal, vPositionNormal)), p );
+      gl_FragColor = vec4( glowColor, a );
+    }
+
+  </script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
