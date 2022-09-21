@@ -6,6 +6,11 @@
     "build": "vite build",
     "stage": "vite build --mode staging"
   },
+  "keywords": [
+    "three.js",
+    "vue three.js",
+    "three.js demo"
+  ],
   "dependencies": {
     "@tweenjs/tween.js": "^18.6.4",
     "ant-design-vue": "^2.2.8",
