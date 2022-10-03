@@ -29,4 +29,4 @@ npm run dev
 
 [预览地址](https://demo.hfwujian.cn/heatChange)
 
-[联系作者](https://qiniu3d.hfwujian.cn/imgs/spiderman.jpg)
+![联系作者](https://qiniu3d.hfwujian.cn/imgs/spiderman.jpg)
